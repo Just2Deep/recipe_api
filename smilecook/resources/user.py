@@ -42,3 +42,15 @@ class UserResource(Resource):
             return data, HTTPStatus.OK
 
         return {"message": "user not found"}, HTTPStatus.NOT_FOUND
+
+
+class MeResource(Resource):
+    @jwt_required(optional=False)
+    def get(self):
+        user = User.get_by_id(id=get_jwt_identity())
+
+        data = {"id": user.id, "username": user.username, "email": user.email}
+
+        print(data, "data")
+
+        return data, HTTPStatus.OK
