@@ -22,7 +22,7 @@ class RecipeSchema(Schema):
     cook_time = fields.Int()
     is_publish = fields.Boolean(dump_only=True)
     author = fields.Nested(
-        UserSchema, attribute="user", dump_only=True, only=["id", "username"]
+        UserSchema, attribute="user", dump_only=True, exclude=("email",)
     )
 
     created_at = fields.DateTime(dump_only=True)
