@@ -10,6 +10,7 @@ from resources.user import (
     UserResource,
     MeResource,
     UserRecipeListResource,
+    UserActivateResource,
 )
 from resources.token import TokenResource, RefreshResource, RevokeResource, blacklist
 
@@ -44,6 +45,7 @@ def register_resources(app):
     api.add_resource(UserListResource, "/users")
     api.add_resource(UserResource, "/users/<string:username>")
     api.add_resource(UserRecipeListResource, "/users/<string:username>/recipes")
+    api.add_resource(UserActivateResource, "/users/activate/<string:token>")
     api.add_resource(TokenResource, "/token")
     api.add_resource(MeResource, "/me")
     api.add_resource(RefreshResource, "/refresh")
