@@ -5,7 +5,12 @@ from config import Config
 from extensions import db, jwt, image_set
 from flask_uploads import configure_uploads  # patch_request_class
 
-from resources.recipe import RecipeResource, RecipeListResource, RecipePublishResource
+from resources.recipe import (
+    RecipeResource,
+    RecipeListResource,
+    RecipePublishResource,
+    RecipeCoverUploadResource,
+)
 from resources.user import (
     UserListResource,
     UserResource,
@@ -47,6 +52,7 @@ def register_resources(app):
     api.add_resource(RecipeListResource, "/recipes")
     api.add_resource(RecipeResource, "/recipes/<int:recipe_id>")
     api.add_resource(RecipePublishResource, "/recipes/<int:recipe_id>/publish")
+    api.add_resource(RecipeCoverUploadResource, "/recipes/<int:recipe_id>/cover")
     api.add_resource(UserListResource, "/users")
     api.add_resource(UserResource, "/users/<string:username>")
     api.add_resource(UserRecipeListResource, "/users/<string:username>/recipes")
