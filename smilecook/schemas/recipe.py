@@ -22,6 +22,7 @@ class RecipeSchema(Schema):
     directions = fields.String(validate=[validate.Length(max=1000)])
     num_of_servings = fields.Int(validate=validate_num_of_servings)
     cook_time = fields.Int()
+    ingredients = fields.Str(validate=[validate.Length(max=1000)])
     is_publish = fields.Boolean(dump_only=True)
     cover_image_url = fields.Method(serialize="dump_cover_image_url")
     author = fields.Nested(

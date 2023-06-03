@@ -98,6 +98,7 @@ class RecipeResource(Resource):
         recipe.num_of_servings = data["num_of_servings"]
         recipe.cook_time = data["cook_time"]
         recipe.directions = data["directions"]
+        recipe.ingredients = data["ingredients"]
 
         recipe.save()
         return recipe_schema.dump(recipe), HTTPStatus.OK
@@ -140,6 +141,7 @@ class RecipeResource(Resource):
             )
             recipe.cook_time = data.get("cook_time") or recipe.cook_time
             recipe.directions = data.get("directions") or recipe.directions
+            recipe.ingredients = data.get("ingredients") or recipe.ingredients
 
             recipe.save()
 

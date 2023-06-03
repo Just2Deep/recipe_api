@@ -11,6 +11,7 @@ class Recipe(db.Model):
     num_of_servings = db.Column(db.Integer())
     cook_time = db.Column(db.Integer())
     directions = db.Column(db.String(1000))
+    ingredients = db.Column(db.String(1000))
     is_publish = db.Column(db.Boolean(), default=False)
     created_at = db.Column(db.DateTime(), nullable=False, server_default=db.func.now())
     updated_at = db.Column(
@@ -74,7 +75,11 @@ class Recipe(db.Model):
 
         return (
             cls.query.filter(
-                or_(cls.name.ilike(keyword), cls.description.ilike(keyword)),
+                or_(
+                    cls.name.ilike(keyword),
+                    cls.description.ilike(keyword),
+                    cls.ingredients.ilike(keyword),
+                ),
                 (cls.is_publish.is_(True)),
             )
             .order_by(sort_logic)
