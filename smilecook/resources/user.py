@@ -13,7 +13,7 @@ from models.user import User
 from models.recipe import Recipe
 
 from schemas.user import UserSchema
-from schemas.recipe import RecipeSchema
+from schemas.recipe import RecipeSchema, RecipePaginationSchema
 
 from mailgun import MailgunApi
 from config import Config
@@ -25,6 +25,7 @@ user_public_schema = UserSchema(exclude=("email",))
 user_avatar_schema = UserSchema(only=("avatar_url",))
 
 recipe_list_schema = RecipeSchema(many=True)
+recipe_pagination_schema = RecipePaginationSchema()
 
 mailgun = MailgunApi(
     domain=Config.MAILGUN_DOMAIN,
@@ -98,17 +99,27 @@ class MeResource(Resource):
 class UserRecipeListResource(Resource):
     @jwt_required(optional=True)
     @use_kwargs(
-        {"visibility": fields.Str(missing="public", required=False)}, location="query"
+        {
+            "visibility": fields.Str(missing="public", required=False),
+            "page": fields.Int(missing=1),
+            "per_page": fields.Int(missing=10),
+        },
+        location="query",
     )
-    def get(self, username, visibility):
+    def get(self, username, visibility, page, per_page):
         if user := User.get_by_username(username=username):
             current_user = get_jwt_identity()
             if current_user != user.id or visibility not in ["all", "private"]:
                 visibility = "public"
 
-            recipes = Recipe.get_all_by_user(user_id=user.id, visibility=visibility)
+            recipes = Recipe.get_all_by_user(
+                user_id=user.id,
+                page=page,
+                per_page=per_page,
+                visibility=visibility,
+            )
 
-            return recipe_list_schema.dump(recipes), HTTPStatus.OK
+            return recipe_pagination_schema.dump(recipes), HTTPStatus.OK
 
         return {"message": "User Not Found"}, HTTPStatus.NOT_FOUND
 

@@ -22,7 +22,7 @@ recipe_pagination_schema = RecipePaginationSchema()
 
 class RecipeListResource(Resource):
     @use_kwargs(
-        {"page": fields.Integer(missing=1), "per_page": fields.Integer(missing=20)},
+        {"page": fields.Int(missing=1), "per_page": fields.Int(missing=20)},
         location="query",
     )
     def get(self, page, per_page):
