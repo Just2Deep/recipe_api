@@ -112,6 +112,7 @@ class UserRecipeListResource(Resource):
             if current_user != user.id or visibility not in ["all", "private"]:
                 visibility = "public"
 
+            per_page = max(15, per_page)
             recipes = Recipe.get_all_by_user(
                 user_id=user.id,
                 page=page,
