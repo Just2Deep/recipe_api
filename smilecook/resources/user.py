@@ -8,7 +8,7 @@ from webargs import fields
 from webargs.flaskparser import use_kwargs
 
 from marshmallow import ValidationError
-from utils import verify_token, generate_token, save_image
+from utils import verify_token, generate_token, save_image, clear_cache
 from models.user import User
 from models.recipe import Recipe
 
@@ -168,5 +168,6 @@ class UserAvatarUploadResource(Resource):
         filename = save_image(image=file, folder="avatars")
         user.avatar_image = filename
         user.save()
+        clear_cache("/recipes")
 
         return user_avatar_schema.dump(user), HTTPStatus.OK

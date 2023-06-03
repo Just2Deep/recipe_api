@@ -5,7 +5,7 @@ from flask import current_app
 
 import uuid
 from flask_uploads import extension
-from extensions import image_set
+from extensions import image_set, cache
 
 import os
 from PIL import Image
@@ -72,3 +72,9 @@ def compress_image(filename, folder):
 
     os.remove(file_path)
     return compressed_filename
+
+
+def clear_cache(key_prefix):
+    keys = [key for key in cache.cache._cache.keys() if key.startswith(key_prefix)]
+
+    cache.delete_many(*keys)

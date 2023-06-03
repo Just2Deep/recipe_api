@@ -29,3 +29,5 @@ class Config:
     MAILGUN_API_KEY = MAILGUN_API_KEY
     UPLOADED_IMAGES_DEST = "static/images"
     MAX_CONTENT_LENGTH = 10 * 1000 * 1000
+    CACHE_TYPE = "simple"
+    CACHE_DEFAULT_TIMEOUT = 10 * 60

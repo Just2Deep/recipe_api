@@ -8,11 +8,11 @@ from webargs.flaskparser import use_kwargs
 from marshmallow import ValidationError
 from models.recipe import Recipe
 from models.user import User
-from utils import save_image
+from utils import save_image, clear_cache
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from schemas.recipe import RecipeSchema, RecipePaginationSchema
 
-from extensions import image_set
+from extensions import image_set, cache
 
 recipe_schema = RecipeSchema()
 recipe_list_schema = RecipeSchema(many=True)
@@ -31,7 +31,9 @@ class RecipeListResource(Resource):
         },
         location="query",
     )
+    @cache.cached(timeout=60, query_string=True)
     def get(self, q, page, per_page, sort, order):
+        print("Querying Database...!")
         if sort not in ["created_at", "cook_time", "num_of_servings", "id"]:
             sort = "created_at"
 
@@ -101,6 +103,8 @@ class RecipeResource(Resource):
         recipe.ingredients = data["ingredients"]
 
         recipe.save()
+        clear_cache("/recipes")
+
         return recipe_schema.dump(recipe), HTTPStatus.OK
 
     @jwt_required()
@@ -113,6 +117,8 @@ class RecipeResource(Resource):
                 return {{"message": "Access not allowed"}}, HTTPStatus.FORBIDDEN
 
             recipe.delete()
+            clear_cache("/recipes")
+
             return {}, HTTPStatus.NO_CONTENT
 
         return {"message": "recipe not found"}, HTTPStatus.NOT_FOUND
@@ -144,6 +150,7 @@ class RecipeResource(Resource):
             recipe.ingredients = data.get("ingredients") or recipe.ingredients
 
             recipe.save()
+            clear_cache("/recipes")
 
             return recipe_schema.dump(recipe), HTTPStatus.OK
 
@@ -160,6 +167,7 @@ class RecipePublishResource(Resource):
 
             recipe.is_publish = True
             recipe.save()
+            clear_cache("/recipes")
 
             return {}, HTTPStatus.NO_CONTENT
 
@@ -173,6 +181,8 @@ class RecipePublishResource(Resource):
                 return {{"message": "Access not allowed"}}, HTTPStatus.FORBIDDEN
 
             recipe.is_publish = False
+            clear_cache("/recipes")
+
             return {}, HTTPStatus.NO_CONTENT
 
         return {"message": "recipe not found"}, HTTPStatus.NOT_FOUND
@@ -200,6 +210,7 @@ class RecipeCoverUploadResource(Resource):
             file_path = save_image(image=file, folder="recipes")
             recipe.cover_image = file_path
             recipe.save()
+            clear_cache("/recipes")
 
             return recipe_cover_schema.dump(recipe), HTTPStatus.OK
 
