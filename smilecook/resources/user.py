@@ -18,7 +18,7 @@ from schemas.recipe import RecipeSchema, RecipePaginationSchema
 from mailgun import MailgunApi
 from config import Config
 
-from extensions import image_set
+from extensions import image_set, limiter
 
 user_schema = UserSchema()
 user_public_schema = UserSchema(exclude=("email",))
@@ -97,6 +97,14 @@ class MeResource(Resource):
 
 
 class UserRecipeListResource(Resource):
+    decorators = [
+        limiter.limit(
+            limit_value="20/minute;30/hour;300/day",
+            methods=["GET"],
+            error_message="Too many requests",
+        ),
+    ]
+
     @jwt_required(optional=True)
     @use_kwargs(
         {

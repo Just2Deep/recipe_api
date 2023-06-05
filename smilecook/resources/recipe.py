@@ -12,7 +12,7 @@ from utils import save_image, clear_cache
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from schemas.recipe import RecipeSchema, RecipePaginationSchema
 
-from extensions import image_set, cache
+from extensions import image_set, cache, limiter
 
 recipe_schema = RecipeSchema()
 recipe_list_schema = RecipeSchema(many=True)
@@ -21,6 +21,10 @@ recipe_pagination_schema = RecipePaginationSchema()
 
 
 class RecipeListResource(Resource):
+    decorators = [
+        limiter.limit("2/minute", methods=["GET"], error_message="Too Many Requests")
+    ]
+
     @use_kwargs(
         {
             "q": fields.Str(missing=""),

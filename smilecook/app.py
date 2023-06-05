@@ -1,8 +1,8 @@
-from flask import Flask
+from flask import Flask, request
 from flask_migrate import Migrate
 from flask_restful import Api
 from config import Config
-from extensions import db, jwt, image_set, cache
+from extensions import db, jwt, image_set, cache, limiter
 from flask_uploads import configure_uploads
 
 from resources.recipe import (
@@ -38,6 +38,7 @@ def register_extensions(app):
 
     configure_uploads(app, image_set)
     cache.init_app(app)
+    limiter.init_app(app)
 
     @jwt.token_in_blocklist_loader
     def check_if_token_in_blacklist(jwt_header, jwt_payload: dict):
@@ -58,6 +59,10 @@ def register_extensions(app):
         # print("\n====================================\n")
 
         return response
+
+    # @limiter.request_filter
+    # def ip_whitelist():
+    #     return request.remote_addr == "127.0.0.1"
 
 
 def register_resources(app):
