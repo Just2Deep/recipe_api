@@ -45,3 +45,4 @@ urllib3==2.0.2
 webargs==8.2.0
 Werkzeug
 wrapt==1.15.0
+gunicorn
