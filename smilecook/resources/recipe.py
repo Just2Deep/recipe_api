@@ -72,7 +72,8 @@ class RecipeListResource(Resource):
 class RecipeResource(Resource):
     @jwt_required(optional=True)
     def get(self, recipe_id):
-        if recipe := Recipe.get_by_id(recipe_id=recipe_id):
+        recipe = Recipe.get_by_id(recipe_id=recipe_id)
+        if recipe:
             current_user = get_jwt_identity()
 
             if recipe.is_publish == False and recipe.user_id != current_user:
@@ -83,7 +84,8 @@ class RecipeResource(Resource):
 
     @jwt_required()
     def put(self, recipe_id):
-        if not (recipe := Recipe.get_by_id(recipe_id=recipe_id)):
+        recipe = Recipe.get_by_id(recipe_id=recipe_id)
+        if not recipe:
             return {"message": "recipe not found"}, HTTPStatus.NOT_FOUND
         json_data = request.get_json()
         current_user = get_jwt_identity()
@@ -113,7 +115,8 @@ class RecipeResource(Resource):
 
     @jwt_required()
     def delete(self, recipe_id):
-        if recipe := Recipe.get_by_id(recipe_id=recipe_id):
+        recipe = Recipe.get_by_id(recipe_id=recipe_id)
+        if recipe:
             data = request.get_json()
             current_user = get_jwt_identity()
 
@@ -139,7 +142,8 @@ class RecipeResource(Resource):
                 "errors": error.messages,
             }, HTTPStatus.BAD_REQUEST
 
-        if recipe := Recipe.get_by_id(recipe_id=recipe_id):
+        recipe = Recipe.get_by_id(recipe_id=recipe_id)
+        if recipe:
             current_user = get_jwt_identity()
             if current_user != recipe.user_id:
                 return {"message": "Access is not allowed"}, HTTPStatus.FORBIDDEN
@@ -164,7 +168,8 @@ class RecipeResource(Resource):
 class RecipePublishResource(Resource):
     @jwt_required()
     def put(self, recipe_id):
-        if recipe := Recipe.get_by_id(recipe_id=recipe_id):
+        recipe = Recipe.get_by_id(recipe_id=recipe_id)
+        if recipe:
             current_user = get_jwt_identity()
             if current_user != recipe.user_id:
                 return {{"message": "Access not allowed"}}, HTTPStatus.FORBIDDEN
@@ -179,7 +184,8 @@ class RecipePublishResource(Resource):
 
     @jwt_required()
     def delete(self, recipe_id):
-        if recipe := Recipe.get_by_id(recipe_id=recipe_id):
+        recipe = Recipe.get_by_id(recipe_id=recipe_id)
+        if recipe:
             current_user = get_jwt_identity()
             if current_user != recipe.user_id:
                 return {{"message": "Access not allowed"}}, HTTPStatus.FORBIDDEN
@@ -203,7 +209,8 @@ class RecipeCoverUploadResource(Resource):
         if not image_set.file_allowed(file, file.filename):
             return {"message": "file type not allowed"}, HTTPStatus.BAD_REQUEST
 
-        if recipe := Recipe.get_by_id(recipe_id=recipe_id):
+        recipe = Recipe.get_by_id(recipe_id=recipe_id)
+        if recipe:
             if recipe.cover_image:
                 cover_image_path = image_set.path(
                     filename=recipe.cover_image, folder="recipes"

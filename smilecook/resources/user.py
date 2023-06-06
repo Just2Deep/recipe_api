@@ -73,7 +73,8 @@ class UserListResource(Resource):
 class UserResource(Resource):
     @jwt_required(optional=True)
     def get(self, username):
-        if user := User.get_by_username(username=username):
+        user = User.get_by_username(username=username)
+        if user:
             current_user = get_jwt_identity()
 
             if current_user == user.id:
@@ -115,7 +116,8 @@ class UserRecipeListResource(Resource):
         location="query",
     )
     def get(self, username, visibility, page, per_page):
-        if user := User.get_by_username(username=username):
+        user = User.get_by_username(username=username)
+        if user:
             current_user = get_jwt_identity()
             if current_user != user.id or visibility not in ["all", "private"]:
                 visibility = "public"
