@@ -1,416 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Free bootstrap documentation template">
-    <title>Flask-Restful Recipe</title>
-    <!-- using online links -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- using local links -->
-    <link rel="stylesheet" href="css/main.min.css">
-    <link rel="stylesheet" href="css/sidebar-themes.min.css">
-    <link rel="stylesheet" href="css/bootstrap-treeview.min.css">
-    <link rel="stylesheet" href="css/postman.min.css">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Free bootstrap documentation template">
+        <title>Flask-Restful Recipe</title>
+        <!-- using online links -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+            integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+        <!-- using local links -->
+        <link rel="stylesheet" href="css/main.min.css">
+        <link rel="stylesheet" href="css/sidebar-themes.min.css">
+        <link rel="stylesheet" href="css/bootstrap-treeview.min.css">
+        <link rel="stylesheet" href="css/postman.min.css">
 
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png" /> </head>
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    </head>
 
-<body>
-    <div class="page-wrapper toggled light-theme">
-        <div class="modal dark-background" id="snippetModal" tabindex="-1" role="dialog" aria-labelledby="documentation-response-modal" style="display: none;">
-        <div class="modal-dialog" role="document">
-          <div class="modal-header">
-            <div class="title">Example Response</div>
-            <button type="button" class="close btn-circle" data-dismiss="modal" aria-label="Close">
-              <div>
-              <span id="closeModal" aria-hidden="true">�</span>
-              </div>
-            </button>
-          </div>
-          <div class="modal-content">
-            <div class="modal-body" style="width: 540.5px;">
-              <pre class="  language-javascript">
+    <body>
+        <div class="page-wrapper toggled light-theme">
+            <div class="modal dark-background" id="snippetModal" tabindex="-1" role="dialog"
+                aria-labelledby="documentation-response-modal" style="display: none;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-header">
+                        <div class="title">Example Response</div>
+                        <button type="button" class="close btn-circle" data-dismiss="modal" aria-label="Close">
+                            <div>
+                                <span id="closeModal" aria-hidden="true">�</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="modal-content">
+                        <div class="modal-body" style="width: 540.5px;">
+                            <pre class="  language-javascript">
                   <code class=" language-javascript"></code>
               </pre>
-            </div>
-          </div>
-        </div>
-      </div>
-        <nav id="sidebar" class="sidebar-wrapper">
-            <div class="sidebar-content">
-                <!-- sidebar-brand  -->
-                <div class="sidebar-item sidebar-brand text-white font-weight-bold">API Documentation</div>
-                <!-- sidebar-header  -->
-                <!-- sidebar-menu  -->
-                <div class=" sidebar-item sidebar-menu">
-                    <div id="tree"></div>
-                </div>
-                <!-- sidebar-menu  -->
-            </div>
-        </nav>
-        <!-- page-content  -->
-        <main class="page-content">
-            <div id="overlay" class="overlay"></div>
-            <div class="container-fluid">
-                <div class="row d-flex align-items-center p-3 border-bottom">
-                    <div class="col-md-1">
-                        <a id="toggle-sidebar" class="btn rounded-0 p-3" href="#"> <i class="fas fa-bars"></i> </a>
-                    </div>
-                    <div class="col-md-9"></div>
-                    <div class="col-md-2 text-left">
-                    </div>
-                </div>
-                <div class="row p-lg-4">
-                    <article class="main-content col-md-12 pr-lg-9" id="doc-body">
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12">
-                                <div class="api-information">
-                                    <div class="collection-name">
-                                        <p>Flask-Restful Recipe</p>
-                                    </div>
-                                    <div class="collection-description">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="1">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="GET method" >GET</span>
-                                            Get User <span class="lock-icon"></span>
+                    </div>
+                </div>
+            </div>
+            <nav id="sidebar" class="sidebar-wrapper">
+                <div class="sidebar-content">
+                    <!-- sidebar-brand  -->
+                    <div class="sidebar-item sidebar-brand text-white font-weight-bold">API Documentation</div>
+                    <!-- sidebar-header  -->
+                    <!-- sidebar-menu  -->
+                    <div class=" sidebar-item sidebar-menu">
+                        <div id="tree"></div>
+                    </div>
+                    <!-- sidebar-menu  -->
+                </div>
+            </nav>
+            <!-- page-content  -->
+            <main class="page-content">
+                <div id="overlay" class="overlay"></div>
+                <div class="container-fluid">
+                    <div class="row d-flex align-items-center p-3 border-bottom">
+                        <div class="col-md-1">
+                            <a id="toggle-sidebar" class="btn rounded-0 p-3" href="#"> <i class="fas fa-bars"></i> </a>
+                        </div>
+                        <div class="col-md-9"></div>
+                        <div class="col-md-2 text-left">
+                        </div>
+                    </div>
+                    <div class="row p-lg-4">
+                        <article class="main-content col-md-12 pr-lg-9" id="doc-body">
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="api-information">
+                                        <div class="collection-name">
+                                            <p>Flask-Restful Recipe</p>
                                         </div>
-                                     </div>
-                                    <div class="url">{{URL}}/users/josh</div>
-                                    
+                                        <div class="collection-description">
+                                            <p></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Get User</span>
-                                                <span class="caret"></span>
-
-                                            </button>
-
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="1" data-response-info="response_1">Get User</li>
-                                            </ul>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="1">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="GET method">GET</span>
+                                                Get User <span class="lock-icon"></span>
+                                            </div>
                                         </div>
+                                        <div class="url">{{URL}}/users/josh</div>
+
                                     </div>
                                 </div>
-                                <div class="formatted-requests " data-request-id="1"  data-id="response_1">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Get User">
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Get User</span>
+                                                    <span class="caret"></span>
+
+                                                </button>
+
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="1"
+                                                        data-response-info="response_1">Get User</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formatted-requests " data-request-id="1" data-id="response_1">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Get User">
                                                 <code class="is-highlighted">
 GET {{URL}}/users/josh</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="2">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="GET method" >GET</span>
-                                            New User <span class="lock-icon"></span>
-                                        </div>
-                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">New User</span>
-                                                <span class="caret"></span>
 
-                                            </button>
-
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="2" data-response-info="response_2">New User</li>
-                                            </ul>
+                            </div>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="2">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="GET method">GET</span>
+                                                New User <span class="lock-icon"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="formatted-requests " data-request-id="2"  data-id="response_2">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="New User">
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">New User</span>
+                                                    <span class="caret"></span>
+
+                                                </button>
+
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="2"
+                                                        data-response-info="response_2">New User</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formatted-requests " data-request-id="2" data-id="response_2">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="New User">
                                                 <code class="is-highlighted">None</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="3">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="GET method" >GET</span>
-                                            Get User From Auth <span class="lock-icon"></span>
-                                        </div>
-                                     </div>
-                                    <div class="url">{{URL}}/me</div>
-                                    
-                                    <div class="request-body">
-                                        <div class="body-heading">HEADERS</div>
-                                        <hr>
-                                          <div class="param row">
-                                            <div class="name col-md-3 col-xs-12">Authorization</div>
-                                            <div class="value col-md-9 col-xs-12">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4NTUyMjY5MSwianRpIjoiNWMxYmFhMmUtMjM2OS00ZDFjLWFhMGUtYjEzNDFmNDNmY2ZmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjg1NTIyNjkxLCJleHAiOjE2ODU1MjM1OTF9.9rcp7j5P8nt4Qo0FkfKmxxobGY-XWCENcALZ5xxYXi4</div>
-                                            <div class="description col-md-9 col-xs-12"><p>None</p>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="3">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="GET method">GET</span>
+                                                Get User From Auth <span class="lock-icon"></span>
                                             </div>
-                                          </div>
-                                    </div>
-                                    
-                                    <div class="request-body">
-                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
-                                        <hr>
+                                        </div>
+                                        <div class="url">{{URL}}/me</div>
+
+                                        <div class="request-body">
+                                            <div class="body-heading">HEADERS</div>
+                                            <hr>
+                                            <div class="param row">
+                                                <div class="name col-md-3 col-xs-12">Authorization</div>
+                                                <div class="value col-md-9 col-xs-12">Bearer
+                                                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4NTUyMjY5MSwianRpIjoiNWMxYmFhMmUtMjM2OS00ZDFjLWFhMGUtYjEzNDFmNDNmY2ZmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjg1NTIyNjkxLCJleHAiOjE2ODU1MjM1OTF9.9rcp7j5P8nt4Qo0FkfKmxxobGY-XWCENcALZ5xxYXi4
+                                                </div>
+                                                <div class="description col-md-9 col-xs-12">
+                                                    <p>None</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="request-body">
+                                            <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                            <hr>
                                             <div class="raw-body code-snippet">
-                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper " data-title="Get User From Auth">
+                                                <pre class="body-block click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Get User From Auth">
                                                   <code>
                                                     
 
                                                   </code>
                                               </pre>
                                             </div>
-                                        
+
+                                        </div>
+
                                     </div>
-                                    
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Get User From Auth</span>
-                                                <span class="caret"></span>
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Get User From
+                                                        Auth</span>
+                                                    <span class="caret"></span>
 
-                                            </button>
+                                                </button>
 
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="3" data-response-info="response_3">Get User From Auth</li>
-                                            </ul>
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="3"
+                                                        data-response-info="response_3">Get User From Auth</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="formatted-requests " data-request-id="3"  data-id="response_3">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Get User From Auth">
+                                    <div class="formatted-requests " data-request-id="3" data-id="response_3">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Get User From Auth">
                                                 <code class="is-highlighted">
 GET {{URL}}/me
 
 </code>
                                             </pre>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="4">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="GET method" >GET</span>
-                                            User Recipe List <span class="lock-icon"></span>
-                                        </div>
-                                     </div>
-                                    <div class="url">{{URL}}/users/josh/recipes?visibility=all</div>
-                                    
-                                    <div class="request-body">
-                                        <div class="body-heading">PARAMS</div>
-                                        <hr>
-                                          <div class="param row">
-                                            <div class="name col-md-3 col-xs-12">visibility</div>
-                                            <div class="value col-md-9 col-xs-12">all</div>
-                                            <div class="description col-md-9 col-xs-12"><p>None</p>
                                             </div>
-                                          </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">User Recipe List</span>
-                                                <span class="caret"></span>
-
-                                            </button>
-
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="4" data-response-info="response_4">User Recipe List</li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="formatted-requests " data-request-id="4"  data-id="response_4">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="User Recipe List">
+
+                            </div>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="4">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="GET method">GET</span>
+                                                User Recipe List <span class="lock-icon"></span>
+                                            </div>
+                                        </div>
+                                        <div class="url">{{URL}}/users/josh/recipes?visibility=all</div>
+
+                                        <div class="request-body">
+                                            <div class="body-heading">PARAMS</div>
+                                            <hr>
+                                            <div class="param row">
+                                                <div class="name col-md-3 col-xs-12">visibility</div>
+                                                <div class="value col-md-9 col-xs-12">all</div>
+                                                <div class="description col-md-9 col-xs-12">
+                                                    <p>None</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">User Recipe
+                                                        List</span>
+                                                    <span class="caret"></span>
+
+                                                </button>
+
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="4"
+                                                        data-response-info="response_4">User Recipe List</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formatted-requests " data-request-id="4" data-id="response_4">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="User Recipe List">
                                                 <code class="is-highlighted">
 GET {{URL}}/users/josh/recipes?visibility=all</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="5">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="GET method" >GET</span>
-                                            Activate New User <span class="lock-icon"></span>
-                                        </div>
-                                     </div>
-                                    <div class="url">http://127.0.0.1:5000/users/activate/​ImRlZXBqdXN0NTJAZ21haWwuY29tIg.ZHi8EA.RUq6uECfggFd70iywlUvYTJ6wlQ</div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Activate New User</span>
-                                                <span class="caret"></span>
 
-                                            </button>
-
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="5" data-response-info="response_5">Activate New User</li>
-                                            </ul>
+                            </div>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="5">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="GET method">GET</span>
+                                                Activate New User <span class="lock-icon"></span>
+                                            </div>
                                         </div>
+                                        <div class="url">
+                                            http://127.0.0.1:5000/users/activate/​ImRlZXBqdXN0NTJAZ21haWwuY29tIg.ZHi8EA.RUq6uECfggFd70iywlUvYTJ6wlQ
+                                        </div>
+
                                     </div>
                                 </div>
-                                <div class="formatted-requests " data-request-id="5"  data-id="response_5">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Activate New User">
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Activate New
+                                                        User</span>
+                                                    <span class="caret"></span>
+
+                                                </button>
+
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="5"
+                                                        data-response-info="response_5">Activate New User</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formatted-requests " data-request-id="5" data-id="response_5">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Activate New User">
                                                 <code class="is-highlighted">
 GET http://127.0.0.1:5000/users/activate/​ImRlZXBqdXN0NTJAZ21haWwuY29tIg.ZHi8EA.RUq6uECfggFd70iywlUvYTJ6wlQ</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="6">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="PUT method" >PUT</span>
-                                            User Avatar Upload <span class="lock-icon"></span>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="6">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="PUT method">PUT</span>
+                                                User Avatar Upload <span class="lock-icon"></span>
+                                            </div>
                                         </div>
-                                     </div>
-                                    <div class="url">{{URL}}/users/avatar</div>
-                                    
-                                    <div class="request-body">
-                                        <div class="body-heading">BODY <span class="body-type">formdata</span></div>
-                                        <hr>
-                                              <div class="param row">
+                                        <div class="url">{{URL}}/users/avatar</div>
+
+                                        <div class="request-body">
+                                            <div class="body-heading">BODY <span class="body-type">formdata</span></div>
+                                            <hr>
+                                            <div class="param row">
                                                 <div class="name col-md-3 col-xs-12">avatar</div>
                                                 <div class="value col-md-9 col-xs-12">None</div>
-                                                <div class="description col-md-9 col-xs-12"><p>None</p>
+                                                <div class="description col-md-9 col-xs-12">
+                                                    <p>None</p>
                                                 </div>
-                                              </div>
-                                        
+                                            </div>
+
+                                        </div>
+
                                     </div>
-                                    
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">User Avatar Upload</span>
-                                                <span class="caret"></span>
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">User Avatar
+                                                        Upload</span>
+                                                    <span class="caret"></span>
 
-                                            </button>
+                                                </button>
 
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="6" data-response-info="response_6">User Avatar Upload</li>
-                                            </ul>
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="6"
+                                                        data-response-info="response_6">User Avatar Upload</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="formatted-requests " data-request-id="6"  data-id="response_6">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="User Avatar Upload">
+                                    <div class="formatted-requests " data-request-id="6" data-id="response_6">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="User Avatar Upload">
                                                 <code class="is-highlighted">
 PUT {{URL}}/users/avatar</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="7">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="POST method" >POST</span>
-                                            Token Auth <span class="lock-icon"></span>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="7">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="POST method">POST</span>
+                                                Token Auth <span class="lock-icon"></span>
+                                            </div>
                                         </div>
-                                     </div>
-                                    <div class="url">{{URL}}/token</div>
-                                    
-                                    <div class="request-body">
-                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
-                                        <hr>
+                                        <div class="url">{{URL}}/token</div>
+
+                                        <div class="request-body">
+                                            <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                            <hr>
                                             <div class="raw-body code-snippet">
-                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper " data-title="Token Auth">
+                                                <pre class="body-block click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Token Auth">
                                                   <code>
                                                     
 {
@@ -420,34 +467,39 @@ PUT {{URL}}/users/avatar</code>
                                                   </code>
                                               </pre>
                                             </div>
-                                        
+
+                                        </div>
+
                                     </div>
-                                    
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Token Auth</span>
-                                                <span class="caret"></span>
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Token Auth</span>
+                                                    <span class="caret"></span>
 
-                                            </button>
+                                                </button>
 
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="7" data-response-info="response_7">Token Auth</li>
-                                            </ul>
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="7"
+                                                        data-response-info="response_7">Token Auth</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="formatted-requests " data-request-id="7"  data-id="response_7">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Token Auth">
+                                    <div class="formatted-requests " data-request-id="7" data-id="response_7">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Token Auth">
                                                 <code class="is-highlighted">
 POST {{URL}}/token
 
@@ -456,115 +508,126 @@ POST {{URL}}/token
     "password": "1234"
 }</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="8">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="POST method" >POST</span>
-                                            Refresh <span class="lock-icon"></span>
-                                        </div>
-                                     </div>
-                                    <div class="url">{{URL}}/refresh</div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Refresh</span>
-                                                <span class="caret"></span>
 
-                                            </button>
-
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="8" data-response-info="response_8">Refresh</li>
-                                            </ul>
+                            </div>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="8">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="POST method">POST</span>
+                                                Refresh <span class="lock-icon"></span>
+                                            </div>
                                         </div>
+                                        <div class="url">{{URL}}/refresh</div>
+
                                     </div>
                                 </div>
-                                <div class="formatted-requests " data-request-id="8"  data-id="response_8">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Refresh">
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Refresh</span>
+                                                    <span class="caret"></span>
+
+                                                </button>
+
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="8"
+                                                        data-response-info="response_8">Refresh</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formatted-requests " data-request-id="8" data-id="response_8">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Refresh">
                                                 <code class="is-highlighted">
 POST {{URL}}/refresh</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="9">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="GET method" >GET</span>
-                                            Revoke Token <span class="lock-icon"></span>
-                                        </div>
-                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Revoke Token</span>
-                                                <span class="caret"></span>
 
-                                            </button>
-
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="9" data-response-info="response_9">Revoke Token</li>
-                                            </ul>
+                            </div>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="9">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="GET method">GET</span>
+                                                Revoke Token <span class="lock-icon"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="formatted-requests " data-request-id="9"  data-id="response_9">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Revoke Token">
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Revoke Token</span>
+                                                    <span class="caret"></span>
+
+                                                </button>
+
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="9"
+                                                        data-response-info="response_9">Revoke Token</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formatted-requests " data-request-id="9" data-id="response_9">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Revoke Token">
                                                 <code class="is-highlighted">None</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="10">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="PUT method" >PUT</span>
-                                            Udpate a Recipe <span class="lock-icon"></span>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="10">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="PUT method">PUT</span>
+                                                Udpate a Recipe <span class="lock-icon"></span>
+                                            </div>
                                         </div>
-                                     </div>
-                                    <div class="url">{{URL}}/recipes/1</div>
-                                    
-                                    <div class="request-body">
-                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
-                                        <hr>
+                                        <div class="url">{{URL}}/recipes/1</div>
+
+                                        <div class="request-body">
+                                            <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                            <hr>
                                             <div class="raw-body code-snippet">
-                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Udpate a Recipe">
+                                                <pre class="body-block click-to-expand-wrapper is-snippet-wrapper is-expandable"
+                                                    data-title="Udpate a Recipe">
                                                   <code>
                                                     
 {
@@ -577,34 +640,40 @@ POST {{URL}}/refresh</code>
                                                   </code>
                                               </pre>
                                             </div>
-                                        
+
+                                        </div>
+
                                     </div>
-                                    
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Udpate a Recipe</span>
-                                                <span class="caret"></span>
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Udpate a
+                                                        Recipe</span>
+                                                    <span class="caret"></span>
 
-                                            </button>
+                                                </button>
 
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="10" data-response-info="response_10">Udpate a Recipe</li>
-                                            </ul>
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="10"
+                                                        data-response-info="response_10">Udpate a Recipe</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="formatted-requests " data-request-id="10"  data-id="response_10">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Udpate a Recipe">
+                                    <div class="formatted-requests " data-request-id="10" data-id="response_10">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable"
+                                                    data-title="Udpate a Recipe">
                                                 <code class="is-highlighted">
 PUT {{URL}}/recipes/1
 
@@ -616,73 +685,80 @@ PUT {{URL}}/recipes/1
     "directions": "This is how you make it"
 }</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="11">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="GET method" >GET</span>
-                                            Get One Recipe <span class="lock-icon"></span>
-                                        </div>
-                                     </div>
-                                    <div class="url">{{URL}}/recipes/11</div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Get One Recipe</span>
-                                                <span class="caret"></span>
 
-                                            </button>
-
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="11" data-response-info="response_11">Get One Recipe</li>
-                                            </ul>
+                            </div>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="11">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="GET method">GET</span>
+                                                Get One Recipe <span class="lock-icon"></span>
+                                            </div>
                                         </div>
+                                        <div class="url">{{URL}}/recipes/11</div>
+
                                     </div>
                                 </div>
-                                <div class="formatted-requests " data-request-id="11"  data-id="response_11">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Get One Recipe">
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Get One
+                                                        Recipe</span>
+                                                    <span class="caret"></span>
+
+                                                </button>
+
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="11"
+                                                        data-response-info="response_11">Get One Recipe</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formatted-requests " data-request-id="11" data-id="response_11">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Get One Recipe">
                                                 <code class="is-highlighted">
 GET {{URL}}/recipes/11</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="12">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="POST method" >POST</span>
-                                            Add New Recipe <span class="lock-icon"></span>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="12">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="POST method">POST</span>
+                                                Add New Recipe <span class="lock-icon"></span>
+                                            </div>
                                         </div>
-                                     </div>
-                                    <div class="url">{{URL}}/recipes</div>
-                                    
-                                    <div class="request-body">
-                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
-                                        <hr>
+                                        <div class="url">{{URL}}/recipes</div>
+
+                                        <div class="request-body">
+                                            <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                            <hr>
                                             <div class="raw-body code-snippet">
-                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Add New Recipe">
+                                                <pre class="body-block click-to-expand-wrapper is-snippet-wrapper is-expandable"
+                                                    data-title="Add New Recipe">
                                                   <code>
                                                     
 {
@@ -695,34 +771,40 @@ GET {{URL}}/recipes/11</code>
                                                   </code>
                                               </pre>
                                             </div>
-                                        
+
+                                        </div>
+
                                     </div>
-                                    
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Add New Recipe</span>
-                                                <span class="caret"></span>
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Add New
+                                                        Recipe</span>
+                                                    <span class="caret"></span>
 
-                                            </button>
+                                                </button>
 
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="12" data-response-info="response_12">Add New Recipe</li>
-                                            </ul>
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="12"
+                                                        data-response-info="response_12">Add New Recipe</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="formatted-requests " data-request-id="12"  data-id="response_12">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Add New Recipe">
+                                    <div class="formatted-requests " data-request-id="12" data-id="response_12">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable"
+                                                    data-title="Add New Recipe">
                                                 <code class="is-highlighted">
 POST {{URL}}/recipes
 
@@ -734,163 +816,181 @@ POST {{URL}}/recipes
     "directions": "This is how you make it"
 }</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="13">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="PUT method" >PUT</span>
-                                            Publish Recipe <span class="lock-icon"></span>
-                                        </div>
-                                     </div>
-                                    <div class="url">{{URL}}/recipes/9/publish</div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Publish Recipe</span>
-                                                <span class="caret"></span>
 
-                                            </button>
-
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="13" data-response-info="response_13">Publish Recipe</li>
-                                            </ul>
+                            </div>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="13">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="PUT method">PUT</span>
+                                                Publish Recipe <span class="lock-icon"></span>
+                                            </div>
                                         </div>
+                                        <div class="url">{{URL}}/recipes/9/publish</div>
+
                                     </div>
                                 </div>
-                                <div class="formatted-requests " data-request-id="13"  data-id="response_13">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Publish Recipe">
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Publish
+                                                        Recipe</span>
+                                                    <span class="caret"></span>
+
+                                                </button>
+
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="13"
+                                                        data-response-info="response_13">Publish Recipe</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formatted-requests " data-request-id="13" data-id="response_13">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Publish Recipe">
                                                 <code class="is-highlighted">
 PUT {{URL}}/recipes/9/publish</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="14">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="GET method" >GET</span>
-                                            Get All Recipes <span class="lock-icon"></span>
-                                        </div>
-                                     </div>
-                                    <div class="url">{{URL}}/recipes</div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Get All Recipes</span>
-                                                <span class="caret"></span>
 
-                                            </button>
-
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="14" data-response-info="response_14">Get All Recipes</li>
-                                            </ul>
+                            </div>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="14">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="GET method">GET</span>
+                                                Get All Recipes <span class="lock-icon"></span>
+                                            </div>
                                         </div>
+                                        <div class="url">{{URL}}/recipes</div>
+
                                     </div>
                                 </div>
-                                <div class="formatted-requests " data-request-id="14"  data-id="response_14">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Get All Recipes">
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Get All
+                                                        Recipes</span>
+                                                    <span class="caret"></span>
+
+                                                </button>
+
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="14"
+                                                        data-response-info="response_14">Get All Recipes</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formatted-requests " data-request-id="14" data-id="response_14">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Get All Recipes">
                                                 <code class="is-highlighted">
 GET {{URL}}/recipes</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="15">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="DELETE method" >DELETE</span>
-                                            Delete Recipe <span class="lock-icon"></span>
-                                        </div>
-                                     </div>
-                                    <div class="url">{{URL}}/recipes/3/publish</div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Delete Recipe</span>
-                                                <span class="caret"></span>
 
-                                            </button>
-
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="15" data-response-info="response_15">Delete Recipe</li>
-                                            </ul>
+                            </div>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="15">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="DELETE method">DELETE</span>
+                                                Delete Recipe <span class="lock-icon"></span>
+                                            </div>
                                         </div>
+                                        <div class="url">{{URL}}/recipes/3/publish</div>
+
                                     </div>
                                 </div>
-                                <div class="formatted-requests " data-request-id="15"  data-id="response_15">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Delete Recipe">
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Delete Recipe</span>
+                                                    <span class="caret"></span>
+
+                                                </button>
+
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="15"
+                                                        data-response-info="response_15">Delete Recipe</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formatted-requests " data-request-id="15" data-id="response_15">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Delete Recipe">
                                                 <code class="is-highlighted">
 DELETE {{URL}}/recipes/3/publish</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="16">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="PATCH method" >PATCH</span>
-                                            Update Partial <span class="lock-icon"></span>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="16">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="PATCH method">PATCH</span>
+                                                Update Partial <span class="lock-icon"></span>
+                                            </div>
                                         </div>
-                                     </div>
-                                    <div class="url">{{URL}}/recipes/3</div>
-                                    
-                                    <div class="request-body">
-                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
-                                        <hr>
+                                        <div class="url">{{URL}}/recipes/3</div>
+
+                                        <div class="request-body">
+                                            <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                            <hr>
                                             <div class="raw-body code-snippet">
-                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper " data-title="Update Partial">
+                                                <pre class="body-block click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Update Partial">
                                                   <code>
                                                     
 {
@@ -899,34 +999,40 @@ DELETE {{URL}}/recipes/3/publish</code>
                                                   </code>
                                               </pre>
                                             </div>
-                                        
+
+                                        </div>
+
                                     </div>
-                                    
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Update Partial</span>
-                                                <span class="caret"></span>
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Update
+                                                        Partial</span>
+                                                    <span class="caret"></span>
 
-                                            </button>
+                                                </button>
 
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="16" data-response-info="response_16">Update Partial</li>
-                                            </ul>
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="16"
+                                                        data-response-info="response_16">Update Partial</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="formatted-requests " data-request-id="16"  data-id="response_16">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Update Partial">
+                                    <div class="formatted-requests " data-request-id="16" data-id="response_16">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Update Partial">
                                                 <code class="is-highlighted">
 PATCH {{URL}}/recipes/3
 
@@ -934,86 +1040,94 @@ PATCH {{URL}}/recipes/3
  "num_of_servings": 5
 }</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row row-no-padding row-eq-height">
-                            <div class="col-md-6 col-xs-12 section">
-                                <div class="api-information" id="17">
-                                     <div class="heading">
-                                        <div class="name">
-                                            <span class="PUT method" >PUT</span>
-                                            Add Cover Image <span class="lock-icon"></span>
-                                        </div>
-                                     </div>
-                                    <div class="url">{{URL}}/recipes/11/cover_image</div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 examples">
-                                <div class="sample-request">
-                                    <div class="heading">
-                                        <span>Example Request</span>
-                                    </div>
-                                    <div class="responses-index">
-                                        <div class="dropdown response-name">
-                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">Add Cover Image</span>
-                                                <span class="caret"></span>
 
-                                            </button>
-
-                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="17" data-response-info="response_17">Add Cover Image</li>
-                                            </ul>
+                            </div>
+                            <div class="row row-no-padding row-eq-height">
+                                <div class="col-md-6 col-xs-12 section">
+                                    <div class="api-information" id="17">
+                                        <div class="heading">
+                                            <div class="name">
+                                                <span class="PUT method">PUT</span>
+                                                Add Cover Image <span class="lock-icon"></span>
+                                            </div>
                                         </div>
+                                        <div class="url">{{URL}}/recipes/11/cover_image</div>
+
                                     </div>
                                 </div>
-                                <div class="formatted-requests " data-request-id="17"  data-id="response_17">
-                                    <div class="request code-snippet">
-                                        <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Add Cover Image">
+                                <div class="col-md-6 col-xs-12 examples">
+                                    <div class="sample-request">
+                                        <div class="heading">
+                                            <span>Example Request</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="dropdown response-name">
+                                                <button class="btn   responses-dropdown truncate" type="button"
+                                                    id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <span id="selected" class="response-name-label">Add Cover
+                                                        Image</span>
+                                                    <span class="caret"></span>
+
+                                                </button>
+
+                                                <ul class="dropdown-menu"
+                                                    aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                    <li class="truncate" data-request-info="17"
+                                                        data-response-info="response_17">Add Cover Image</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formatted-requests " data-request-id="17" data-id="response_17">
+                                        <div class="request code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper "
+                                                    data-title="Add Cover Image">
                                                 <code class="is-highlighted">
 PUT {{URL}}/recipes/11/cover_image</code>
                                             </pre>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </main>
-        <!-- page-content" -->
-    </div>
-    <!-- page-wrapper -->
-    <!-- using online scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
-    </script>
-    <script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/bootstrap-treeview.min.js"></script>
-    <script src="js/main.min.js"></script>
-    <script type="application/javascript">
-        var data = [{'text': 'User List', 'nodes': [{'text': 'Get User', 'href': '#1', 'method': 'GET'}, {'text': 'New User', 'href': '#2', 'method': 'GET'}, {'text': 'Get User From Auth', 'href': '#3', 'method': 'GET'}, {'text': 'User Recipe List', 'href': '#4', 'method': 'GET'}, {'text': 'Activate New User', 'href': '#5', 'method': 'GET'}, {'text': 'User Avatar Upload', 'href': '#6', 'method': 'PUT'}], 'icon': 'fas fa-folder', 'selectable': 'false'}, {'text': 'Token', 'nodes': [{'text': 'Token Auth', 'href': '#7', 'method': 'POST'}, {'text': 'Refresh', 'href': '#8', 'method': 'POST'}], 'icon': 'fas fa-folder', 'selectable': 'false'}, {'text': 'Revoke', 'nodes': [{'text': 'Revoke Token', 'href': '#9', 'method': 'GET'}], 'icon': 'fas fa-folder', 'selectable': 'false'}, {'text': 'Recipe', 'nodes': [{'text': 'Udpate a Recipe', 'href': '#10', 'method': 'PUT'}, {'text': 'Get One Recipe', 'href': '#11', 'method': 'GET'}, {'text': 'Add New Recipe', 'href': '#12', 'method': 'POST'}, {'text': 'Publish Recipe', 'href': '#13', 'method': 'PUT'}, {'text': 'Get All Recipes', 'href': '#14', 'method': 'GET'}, {'text': 'Delete Recipe', 'href': '#15', 'method': 'DELETE'}, {'text': 'Update Partial', 'href': '#16', 'method': 'PATCH'}, {'text': 'Add Cover Image', 'href': '#17', 'method': 'PUT'}], 'icon': 'fas fa-folder', 'selectable': 'false'}]
-        $('#tree').treeview({
-            data: data,
-            levels: 10,
-            expandIcon: 'fas fa-caret-right',
-            collapseIcon: 'fas fa-caret-down',
-            enableLinks: true,
-            showIcon: true,
-            showMethod: true
-        });
-    </script>
 
-</body>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </main>
+            <!-- page-content" -->
+        </div>
+        <!-- page-wrapper -->
+        <!-- using online scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+            </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+            </script>
+        <script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="js/bootstrap-treeview.min.js"></script>
+        <script src="js/main.min.js"></script>
+        <script type="application/javascript">
+            var data = [{ 'text': 'User List', 'nodes': [{ 'text': 'Get User', 'href': '#1', 'method': 'GET' }, { 'text': 'New User', 'href': '#2', 'method': 'GET' }, { 'text': 'Get User From Auth', 'href': '#3', 'method': 'GET' }, { 'text': 'User Recipe List', 'href': '#4', 'method': 'GET' }, { 'text': 'Activate New User', 'href': '#5', 'method': 'GET' }, { 'text': 'User Avatar Upload', 'href': '#6', 'method': 'PUT' }], 'icon': 'fas fa-folder', 'selectable': 'false' }, { 'text': 'Token', 'nodes': [{ 'text': 'Token Auth', 'href': '#7', 'method': 'POST' }, { 'text': 'Refresh', 'href': '#8', 'method': 'POST' }], 'icon': 'fas fa-folder', 'selectable': 'false' }, { 'text': 'Revoke', 'nodes': [{ 'text': 'Revoke Token', 'href': '#9', 'method': 'GET' }], 'icon': 'fas fa-folder', 'selectable': 'false' }, { 'text': 'Recipe', 'nodes': [{ 'text': 'Udpate a Recipe', 'href': '#10', 'method': 'PUT' }, { 'text': 'Get One Recipe', 'href': '#11', 'method': 'GET' }, { 'text': 'Add New Recipe', 'href': '#12', 'method': 'POST' }, { 'text': 'Publish Recipe', 'href': '#13', 'method': 'PUT' }, { 'text': 'Get All Recipes', 'href': '#14', 'method': 'GET' }, { 'text': 'Delete Recipe', 'href': '#15', 'method': 'DELETE' }, { 'text': 'Update Partial', 'href': '#16', 'method': 'PATCH' }, { 'text': 'Add Cover Image', 'href': '#17', 'method': 'PUT' }], 'icon': 'fas fa-folder', 'selectable': 'false' }]
+            $('#tree').treeview({
+                data: data,
+                levels: 10,
+                expandIcon: 'fas fa-caret-right',
+                collapseIcon: 'fas fa-caret-down',
+                enableLinks: true,
+                showIcon: true,
+                showMethod: true
+            });
+        </script>
+
+    </body>
 
 </html>
